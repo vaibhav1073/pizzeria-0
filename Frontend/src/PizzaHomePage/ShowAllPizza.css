@@ -1,0 +1,20 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(3,23rem);
+    justify-content: space-evenly;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+@media (max-width:768px) {
+    .grid-container{
+        grid-template-columns: repeat(1,20rem);
+        justify-content: space-evenly;
+    }
+}
+
+@media (max-width: 1080px) and (min-width:769px) {
+    .grid-container{
+        grid-template-columns: repeat(2,20rem);
+        justify-content: center;
+    }
+}

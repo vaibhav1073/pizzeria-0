@@ -1,0 +1,48 @@
+.display-flex-container-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+   
+    
+}
+
+
+.blocktwo{
+    width: 30%;
+    height:40px;
+    
+    
+}
+.blockone{
+   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    font-size: large;
+    max-width: 20%;
+   
+}
+
+.icon{
+    transform: scale(1.5);
+    padding-left: 20px;
+}
+
+@media (max-width: 800px) {
+    .display-flex-container-row{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .blocktwo{
+        width: 70%;
+    }
+    .blockthree{
+        width: 70%;
+    }
+    .blockone{
+        max-width: 100%;
+    }
+  }
+

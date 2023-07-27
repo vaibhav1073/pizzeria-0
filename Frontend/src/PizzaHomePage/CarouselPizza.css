@@ -1,0 +1,10 @@
+#main{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.carousel-img{
+object-fit: cover;
+height: 15vh;
+}

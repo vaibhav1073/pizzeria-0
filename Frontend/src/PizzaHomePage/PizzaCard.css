@@ -1,0 +1,48 @@
+.display-flex-container-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+.display-flex-container-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    
+}
+.blockone{
+    flex:2;
+
+}
+.box-shadow-pizza-card{
+   
+        box-shadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px";
+}
+.cartbutton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #ffc107;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+.div-one {
+    width: 70%;
+}
+.div-two {
+    width: 20%
+}
+@media (max-width:768px) {
+    .display-flex-container-row>p{
+        display: flex;
+        width: 100%;
+    }
+    .blockone>span{
+        justify-self: flex-end;
+    }
+}

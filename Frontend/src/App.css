@@ -1,0 +1,13 @@
+
+  
+  .slide-in-right {
+    animation: slideInRight 0.9s forwards;
+  }
+
+  .alert-wrapper {
+    animation: slideInRight 0.5s forwards;
+    z-index: 999;
+  }
+
+ 
+  

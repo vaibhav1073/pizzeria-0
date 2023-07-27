@@ -1,0 +1,34 @@
+@media (max-width:641px) {
+    .wide-class{
+        width: 80%;
+    }
+}
+
+.incremental-button-style{
+    font-size: "0.5rem";
+     padding: 0.2rem; 
+    width:20px; 
+     
+}
+
+.paragraph-style{
+    font-size: 0.7rem;
+     padding: 3px;
+    display:inline-flex;
+    margin:4px;
+    text-align: center;
+    
+ 
+}
+.fa-face-frown-something{
+color:#ffd43b;
+ font-size:15rem;
+
+}
+
+.display-flex-row-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}

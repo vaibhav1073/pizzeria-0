@@ -1,0 +1,104 @@
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faIndianRupeeSign } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch,useSelector } from "react-redux";
+import { increment, setShowAction,setShowAlertText } from "../services/slices/cartSlice";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+export default function PizzaCard({ item }) {
+  const [selectedValue, setSelectedValue] = React.useState("small");
+  const [loaded,setLoaded]=React.useState(false);
+  const loggedIn=useSelector(state=>state.user.loggedIn)
+  const dispatch = useDispatch();
+  const navigate=useNavigate()
+
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+    console.log(selectedValue);
+  };
+  function addToCart() {
+    if(!loggedIn) {
+      navigate('/signin');
+      dispatch(setShowAction(true))
+      dispatch(setShowAlertText("Kindly Login First")) //use a file for this one
+    }
+    else{
+    let entry = [item._id, selectedValue, item.sizes[selectedValue]];
+    dispatch(increment(entry));
+    //set the text also, edit or something else
+    }
+    setTimeout(() => dispatch(setShowAction(false)), 2000);
+  }
+  
+  useEffect(() => {
+    const image=new Image();
+    image.src=item.image;
+    image.onload=setLoaded(true);
+  }, [item.image])
+  
+  return (
+    <div className="col col-md-4 col-sm-10 mx-auto mt-4 justify-content-start">
+      { loaded?
+        <div
+          className="card"
+          style={{
+            width: "20rem",
+            boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+          }}
+        >
+          <img
+            src={item.image}
+            alt=""
+            style={{
+              minWidth: "318px",
+              minHeight: "250px",
+            }}
+            
+          />
+          <div className="card-body shadow">
+            <div className="justify-content-around d-flex">
+              <h5 className="card-title">{item.name}</h5>
+              <div
+                className="border text-center "
+                style={{ width: "40px", height: "35px" }}
+              >
+                {item.vegetarian ? (
+                  <p className="text-success">&#11044;</p>
+                ) : (
+                  <p className="text-danger">&#11044;</p>
+                )}
+              </div>
+            </div>
+            <div className="container d-flex justify-content-around mt-4 row">
+              <select onChange={handleSelectChange} className="form-select">
+                <option value={`small`}>Small</option>
+                <option value={`medium`}>Medium</option>
+                <option value={`large`}>Large</option>
+              </select>
+              <div
+                className="row container text-center d-flex justify-content-around btn btn-warning mt-2 "
+                style={{ overflow: "hidden" }}
+                onClick={addToCart}
+              >
+                <p className="col col-sm col-md-4 my-0">
+                  <FontAwesomeIcon
+                    icon={faIndianRupeeSign}
+                    style={{ color: "#000000" }}
+                  />
+                  {item.sizes[selectedValue]}
+                </p>
+                <FontAwesomeIcon
+                  className="col col-sm col-md-2 mt-1 pl-5"
+                  style={{ color: "black" }}
+                  icon={faCartShopping}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        :<p>Hello frnd I am under water</p>}
+      </div>
+    
+  );
+}

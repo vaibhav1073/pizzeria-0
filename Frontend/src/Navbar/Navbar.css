@@ -1,0 +1,21 @@
+.brand-icon-font{
+    font-family: 'Mr Dafoe', cursive;
+    font-size: 30px;
+}
+*{
+    font-family: Copperplate, Papyrus, fantasy;
+}
+.fa-pizza{
+    display: inline;
+    color: black;
+}
+.active{
+    font-weight: bolder;
+    
+}
+.justify-flex-end{
+    justify-content: flex-end;
+}
+.blockone{
+    flex:2
+}

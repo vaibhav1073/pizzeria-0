@@ -1,0 +1,9 @@
+.toppings-container{
+    height: 30rem;
+    width: 120%;
+    overflow: scroll;
+}
+span{
+    display: inline !important;
+    font-size:0.8rem;
+}
